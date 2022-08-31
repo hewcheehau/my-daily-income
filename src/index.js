@@ -54,4 +54,4 @@ app.get('/', (req, res) => {
 
 
 //starting the server
-app.listen(3001,() =>{console.log('listening 300');});
+app.listen(8080,() =>{console.log('listening 8080');});
