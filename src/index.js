@@ -54,4 +54,4 @@ app.get('/', (req, res) => {
 
 
 //starting the server
-app.listen(8080,() =>{console.log('listening 8080');});
+app.listen(process.env.PORT ||8080,() =>{console.log('listening 8080');});
