@@ -10,9 +10,12 @@ const routes = require('./routes/routes');
 
 require('dotenv').config();
 
-const mongoString = process.env.DATABASE_URL
+// const mongoString = process.env.DATABASE_URL
 
-mongoose.connect(mongoString);
+// mongoose.connect(mongoString);
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true }, () => {
+	console.log("Connected to db successfully");
+  });
 const database = mongoose.connection
 
 database.on('error', (error) => {
