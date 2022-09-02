@@ -13,7 +13,7 @@ require('dotenv').config();
 // const mongoString = process.env.DATABASE_URL
 
 // mongoose.connect(mongoString);
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true }, () => {
+mongoose.connect("mongodb+srv://lawliethew:BdXUAvRHCWpnCmaJ@cluster0.ghfsdzg.mongodb.net/test", { useNewUrlParser: true }, () => {
 	console.log("Connected to db successfully");
   });
 const database = mongoose.connection
