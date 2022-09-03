@@ -13,7 +13,7 @@ require('dotenv').config();
 // const mongoString = process.env.DATABASE_URL
 
 // mongoose.connect(mongoString);
-mongoose.connect("mongodb+srv://lawliethew:BdXUAvRHCWpnCmaJ@cluster0.ghfsdzg.mongodb.net/test", { useNewUrlParser: true }, () => {
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true }, () => {
 	console.log("Connected to db successfully");
   });
 const database = mongoose.connection
@@ -51,6 +51,7 @@ app.use(
 app.use('/v1', routes);
 //defining an endpoint to return all ads
 app.get('/', (req, res) => {
+	console.log("default hew");
 	res.send(ads);
 });
 
