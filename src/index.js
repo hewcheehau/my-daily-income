@@ -7,6 +7,9 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const routes = require('./routes/routes');
+const bcrypt = require('bcrypt');
+var multer = require("multer");
+var upload = multer();
 
 require('dotenv').config();
 
@@ -47,8 +50,12 @@ app.use(
 	  extended: false,
 	})
   );
+// for parsing multipart/form-data
+app.use(upload.array());
+
+//Route Prefixes
 //use Routes file
-app.use('/v1', routes);
+app.use('/v1/', routes);
 //defining an endpoint to return all ads
 app.get('/', (req, res) => {
 	console.log("default hew");
