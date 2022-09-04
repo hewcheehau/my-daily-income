@@ -2,10 +2,11 @@
 
 const express = require('express');
 const userRouter = require('./user');
-
+const jobRouter = require("./jobs")
 const app = express();
 
 app.use("/auth/", userRouter);
+app.use("/job/", jobRouter);
 module.exports = app;
 // const Model = require('../models/model');
 // //Post method
