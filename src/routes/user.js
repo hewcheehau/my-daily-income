@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
     try {
         const data = req.body;
         if (!data.ic || !data.password) {
-            res.status(200).send({error: "Data not formatted properly"});
+            res.status(400).send({error: "Data not formatted properly"});
         }
         else {
             const user = await UserModel.findById(data.ic);
@@ -56,7 +56,7 @@ router.post("/login", async (req, res) => {
                 }
             }
             else {
-                res.status(200).send({message: "user not exists"})
+                res.status(404).send({message: "user not exists"})
             }
         }
     }
