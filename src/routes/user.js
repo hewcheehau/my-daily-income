@@ -21,9 +21,9 @@ router.post("/signup", async (req, res) => {
         //create a new mongoose doc from user data
     const user = await UserModel.create({_id: data.ic, password: data.password, name: data.name})
     //generate salt to hash password
-    const salt = await bcrypt.genSalt(10);
+    const salt = bcrypt.genSaltSync(10);
     //Set user password  to hashed password
-    user.password = await bcrypt.hash(user.password, salt);
+    user.password = bcrypt.hashSync(user.password, salt);
     user.save().then((doc) => res.status(201).json({"status": 200, "message": "SIGN_UP_SUCCESS"}));
     }
     }
@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
     try {
         const data = req.body;
         if (!data.ic || !data.password) {
-            res.status(400).send({error: "Data not formatted properly"});
+            res.status(200).send({error: "Data not formatted properly"});
         }
         else {
             const user = await UserModel.findById(data.ic);

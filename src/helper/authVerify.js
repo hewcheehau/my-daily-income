@@ -22,7 +22,7 @@ const generateToken = (uid) => {
         const payload = {uid}
         //3 - a secret(signature)
         jwt.sign(payload, process.env.TOKEN_SECRET, {
-            expiresIn: '10000',
+            expiresIn: '24h',
         }, (error, token) => {
             if (error) {
                 //Could not create token
