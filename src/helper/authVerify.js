@@ -24,6 +24,7 @@ const generateToken = (uid) => {
         jwt.sign(payload, process.env.TOKEN_SECRET, {
             expiresIn: '24h',
         }, (error, token) => {
+            console.log("got error " + error);
             if (error) {
                 //Could not create token
                 reject('Could not connect to jwt')
