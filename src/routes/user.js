@@ -48,6 +48,7 @@ router.post("/login", async (req, res) => {
                     //SENDING BACK THE TOKEN
                     //const token = jwt.sign({_id: user.id,}, process.env.TOKEN_SECRET)
                     const genToken = await authjwt.generateToken(user.id);
+                    console.log("gentoken " +genToken);
                     res.header("Authorization", genToken).send({'token': genToken})
                 }
                 else {
